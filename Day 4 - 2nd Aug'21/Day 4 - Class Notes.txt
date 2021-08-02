@@ -1,0 +1,42 @@
+Property Class - Get Set
+Constructor - Memory - Allocate - new - automatically - implicit invocation
+Methods - explicit invocation
+obj.methodName();
+Same name as that of our class
+Is similar to method declaration
+access SPecifier - Name followed by Paranthesis then by {}
+public Cons1()
+{}
+Constructor does not have return Type
+Initialising the class members
+
+Constructor OverLoading or Parameterised Constructor- POlymorphism
+Constructor & Inheritence
+BAse class members to be initialised through derived class and this is achieved using the keyword base
+Destructor - reallocate the memory
+implicit invocation
+programatically - destructor name will have same class name
+One destructor
+Aggregator - Class - few Members / Another class - few other members -
+
+Relationship
+Instantiation  - creating object
+Inheritence - 
+Aggregation
+
+Abstract Class - Base
+abstract method - which only declaration - definition
+Inheriting class will define the method
+Mandatory for the inheriting class to implement the abstract method.
+
+
+Interface
+-declaration - class implements the interface will define the methods
+mandatory for the class to implement the interface methods
+Inheritance - multiple -more than one class time - NO
+Multi- Level 
+
+
+Sealed Class 
+Built-in Functions
+File IO
