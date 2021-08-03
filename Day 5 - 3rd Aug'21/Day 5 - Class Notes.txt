@@ -1,0 +1,21 @@
+Keyword namespace within our program refers to Folder / Package
+Functions - Namespace - Built-in functions - String Math DateTime
+Static  - is a single copy  - single memory location
+OOP - Objects - Memory at runtime - removed - More copies of the class
+Exception Handling
+Exception? - Extra ordinary situation
+Errors? - compiler - no errors
+Syntax error
+Compile time 
+Logical error 
+
+Exception occurs when you execute a program
+It abruptly stops your program - Aborts program - avoid termination of application
+Exception
+
+Collections & Generics -? - store data of any datatype and of any size 
+
+Arrays - not resize
+
+IO 
+Serialization
