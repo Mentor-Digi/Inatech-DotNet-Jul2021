@@ -1,0 +1,25 @@
+﻿body
+{
+    background-color:blanchedalmond;
+    width:1000PX;
+    margin-left:125px;
+        
+}
+.Nav{
+background-color:lightblue;
+color:darkslategrey;
+width:700px;height:150px
+
+}
+#content {
+background-color:coral;
+border-radius:15px;
+}
+ul {border:inset;
+list-style-type:georgian;
+padding:7px;
+}
+#main {
+width:640px;float:right
+
+}
