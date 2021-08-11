@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <style>
+        .display {
+        background-color:greenyellow;
+        
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Table of books</h1>
+    <table border="1">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+        </tr>
+        <tr>
+            <td>The Client</td>
+            <td>John Grisham</td>
+        </tr>
+        <tr>
+            <td>Digital Fortress</td>
+            <td>Dan Brown</td>
+        </tr>
+        <tr>
+            <td>Not a penny less Not a penny more</td>
+            <td>Jeff Archer</td>
+        </tr>
+        <tr>
+            <td>Fox with a Golden Tail</td>
+            <td>Bharathi</td>
+        </tr>
+        <tr>
+            <td>Maxims</td>
+            <td>VVS Aiyer</td>
+        </tr>
+    </table>
+    <script>
+        $("td").hover(function () {
+            $(this).addClass("display");
+        },
+            function () {
+                $(this).removeClass("display");
+            }
+        );
+    </script>
+</body>
+</html>

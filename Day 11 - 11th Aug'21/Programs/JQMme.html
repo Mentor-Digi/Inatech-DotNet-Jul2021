@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$("#p1").mouseenter(function (){
+            //    alert("Your mouse entered the Paragraph")
+            //})
+
+            $("#p1").mouseleave(function () {
+                $(this).css("background-color", "aqua");
+            });
+        })
+    </script>
+    
+</head>
+<body>
+    <div>
+        <h2>Explore Mouse Enter</h2>
+        <p id="p1"> Bring your cursor to the paragraph. </p>
+    </div>
+</body>
+</html>

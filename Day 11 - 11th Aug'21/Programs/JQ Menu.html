@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Scripts/jquery-3.3.1.js"></script>
+    <style>
+        body {
+        width:500px;
+        margin:10px;
+        font-family:Helvetica;
+        font-size:14px;
+        font-weight:bold;
+        }
+        .menu {
+        margin:100px 0 0;
+        padding:0;
+        list-style:none;      
+        }
+            .menu li {
+            padding:0;
+            margin:0 2px;
+            float:left;
+            position:relative;
+            text-align:center
+            }
+            .menu a {
+            width:140px;
+            padding:14px 10px;
+            display:block;
+            background-image:url("red button.jpg");
+            }
+            .menu li em {
+            width:180px;
+            height:45px;
+            font-size:13px;
+            font-weight:normal;
+            position:absolute;
+            top:-85px;left:-15px;
+            text-align:center;
+            padding:20px 12px 10px;
+            background-image:url("Yellow Button.jfif");
+            z-index:1;
+            display:none;
+            }
+    </style>
+    <script>
+        $(function () {
+            $(".menu a").append("<em></em>");
+            $(".menu a").hover(function ()
+            {
+            $(this).find("em").stop().animate({ "opacity": "show", "top": "-75" }, "slow");
+                var htext = $(this).attr("title");
+                $(this).find("em").text(htext);
+            },
+            function() {
+            $(this).find("em").stop().animate({ "opacity": "hide", "top": "-85" }, "fast");
+            }
+                );     
+        });
+    </script>
+</head>
+<body>
+    <h2>My sample Menu</h2>
+    <ul class="menu">
+        <li><a href="#" title="This is the home page">Home</a></li>
+        <li><a href="#" title="This is about US"> About Us</a></li>
+        <li><a href="#" title="Our contact information">Contact Us</a></li>
+    </ul>
+</body>
+</html>
