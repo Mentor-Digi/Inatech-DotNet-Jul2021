@@ -1,0 +1,80 @@
+Here is the code for update grid:
+Please make a note:
+In the aspx page (HTML), I have changed the label controls to TextBox under EditItemTemplate
+<asp:GridView ID="GridView1" runat="server" ShowFooter="true" 
+                AutoGenerateColumns="false" 
+                OnRowCancelingEdit="GridView1_RowCancelingEdit" 
+                OnRowDeleting="GridView1_RowDeleting" 
+                OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" 
+                 >
+                <Columns>
+                    <asp:TemplateField HeaderText ="Serial No">
+                       <ItemStyle BorderColor="SandyBrown" />
+                        <ItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%#Eval("sno")%>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%#Eval("sno")%>'></asp:Label>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText ="Student Name">
+                        <ItemStyle BorderColor="SandyBrown" />
+                        <ItemTemplate>
+                            <asp:Label ID="Label3" runat="server" Text='<%#Eval("sname")%>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_sname" runat="server" Text='<%#Eval("sname")%>'></asp:TextBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText ="Student Age">
+                        <ItemStyle BorderColor="SandyBrown" />
+                        <ItemTemplate>
+                            <asp:Label ID="Label5" runat="server" Text='<%#Eval("sage")%>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txt_sage" runat="server" Text='<%#Eval("sage")%>'></asp:TextBox>
+                                 </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                        </FooterTemplate>
+
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText ="Student Gender">
+                        <ItemStyle BorderColor="SandyBrown" />
+                        <ItemTemplate>
+                            <asp:Label ID="Label7" runat="server" Text='<%#Eval("sgender")%>'></asp:Label>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                           <asp:TextBox ID="txt_sgender" runat="server" Text='<%#Eval("sgender") %>'></asp:TextBox>
+                        
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+            
+Following is the code in the.cs file:
+protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            Label sno = GridView1.Rows[e.RowIndex].FindControl("Label2") as Label;
+            TextBox sname = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_sname");
+            TextBox sage = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_sage");
+            TextBox sgender = (TextBox)GridView1.Rows[e.RowIndex].FindControl("txt_sgender");
+            SqlConnection con = new SqlConnection("Data source=Jeyanthi\\Training; database=demo; user id = sa; password =P@ssw0rd");
+
+            string updqry = "Update tbl_test2 set sname='" + sname.Text + "',sage =" + sage.Text + ",sgender ='" + sgender.Text + "' where sno=" + sno.Text;
+            SqlCommand cmd = new SqlCommand(updqry, con);
+            cmd.Connection.Open();
+            cmd.ExecuteNonQuery();
+            GridView1.EditIndex = -1;
+            con.Close();
+
+            GridView1.DataSource = SqlDataSource1;
+            GridView1.DataBind();
+        }
