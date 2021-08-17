@@ -1,0 +1,64 @@
+/*Perform Join Operations
+Create a View Joining all four tables
+Use Join and Group function together to generate a report 
+with orderId, CustomerID , OrderDate and 
+Total Order Amount
+(calculate by grouping values in order items Table)*/
+use AdventureWorks2019
+go
+
+--View
+--Datafile - stored - checksum
+-- department - 336MB - Database MIrroring
+--Table - datafile - retrieved - memory - virtual table
+--stored query - complex query - view
+
+create view vw_dept
+as
+select DepartmentID, Name DepartmentName, GroupName DepartmentCategory
+from HumanResources.Department
+go
+
+select * from vw_dept
+go
+
+create view HumanResources.vw_empInfo
+as
+select emp.BusinessEntityID, FirstName, LastName, Gender, MaritalStatus,
+dept.Name DepartmentName, shf.Name [shift]
+from HumanResources.Employee emp
+join Person.Person per
+on emp.BusinessEntityID = per.BusinessEntityID
+join HumanResources.EmployeeDepartmentHistory dhis
+on dhis.BusinessEntityID = emp.BusinessEntityID
+join HumanResources.Department dept
+on dhis.DepartmentID = dept.DepartmentID
+join HumanResources.Shift shf
+on dhis.ShiftID = shf.ShiftID
+--group by dept.DepartmentID,Gender
+--order by emp.BusinessEntityID
+
+select * from HumanResources.vw_empInfo
+
+
+
+
+--View is editable
+insert HumanResources.Department
+values('Advertisement','Sales and MArketing', GETDATE())
+select * from vw_dept
+
+sp_help 'humanresources.department'
+select * from HumanResources.Department
+--Windows Authentication - integrated security = true -
+--SQL Server Authentication - user id=** password=****
+use demo
+go
+
+update tbl_test2 
+set sage = 21
+where sno = 1
+
+delete from tbl_test2 where  sno =1
+select * from tbl_test2
+sp_help 'tbl_test2'
