@@ -1,0 +1,37 @@
+Existing
+MOdel -Customer
+Views -Enter / Load
+********************
+Database
+Create DB - Add a table - tbl_CustomerData
+Folder - DAL
+Nuget PAckage Manager and installed - Entity Framework
+Inside DAL - add a class - CustomerDAL
+class CustomerDAL:DbContext (using System.Data.Entity)
+Create collection for Dbset
+Override  Model Creating
+protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Customer>().ToTable("tbl_CustomerData");
+        }
+Web.Config
+<connectionStrings>
+    <add name="CustomerDAL"
+         connectionString="Data Source=JEYANTHI\TRAINING;Initial Catalog=CustomerDB;Integrated Security=True"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+*******************
+Controller
+add DAL
+Submit(Customer C)
+{if (ModelState.IsValid)
+            {
+                CustomerDAL cdal = new CustomerDAL();
+                cdal.Customers.Add(C);//memory -ORM
+                cdal.SaveChanges();//db
+                return View("Load", C);
+            }}
+
+
+Db First, Data First, CodeFirst
