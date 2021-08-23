@@ -1,0 +1,4 @@
+Design a registration form in MVC.
+Store the registered data in the database
+And display the registered details giving the user an option edit their own record.
+Apply style wherever needed.
